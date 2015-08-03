@@ -1,10 +1,15 @@
 
 
-default: electronics.pdf
+BUILD_DIR=build/
 
-electronics.pdf: electronics.svg
-	inkscape -f electronics.svg -A electronics.pdf
+
+default: build/electronics.pdf
+
+
+build/%.pdf: %.svg
+	@mkdir -p $(BUILD_DIR)
+	inkscape -f $< -A $@
 
 
 clean:
-	rm -f electronics.pdf
+	rm -rf $(BUILD_DIR) #build/electronics.pdf
