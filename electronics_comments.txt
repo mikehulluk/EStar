@@ -1,0 +1,64 @@
+
+
+Switching:
+-----------
+
+We have 4 switches in the setup:
+
+    1.  Contractor Reset
+    2.  Roboteq Control Power
+    3.  Emergency Brake On.
+    4.  Inverter Switch.
+    5.  Electonize bypass switch
+
+Switches 1,2,3 should be accessible - either on the ControlPod (1,2) or as a
+lanyard (3).
+
+  -- Pressing Switch #1 (Push to Break/Make) will drop 12V accross the
+     Contactor-Reset terminals of the contactor, causing it to reset and turning off
+     the 48V supply to the Roboteq. This will stop the power to the motors, but not
+     engage the brakes.
+
+  -- Switch #2 is a toggle switch that either provides 12V or
+     Ground to the Ctrl-Power input to the Roboteq. When the Roboteq is off, the
+     brakes will be engaged.
+
+  -- Switch #3 (possibly a lanyard) can be used to turn on
+     the brakes. There is a feedback loop to the roboteq that also cuts the drive to
+     the motors if this is detected.
+
+  -- Switch #4 should be out of the way (near the charging port), can be used to
+     turn the wheelchair completely off when its not being used. This is *NOT* an
+     emergency off - since it will turn off the 12V needed by push switch #1 needed
+     to turn off the safety-contactor.
+
+  -- Switch #5 should also be out of the way (next to switch #4? )can be used to
+     bypass the Electronize. The Electronize is a failsafe mechanism to turn off the
+     chair in case of problem while operating it remotely.  We want to be able to
+     bypass this because if the user is in the chair, and there is a problem with
+     the wireless, then the brakes will suddenly turn on, which would be bad if the
+     user were pacing along at the time.
+
+TODO:
+------
+0/ Go through Chpt1 of Roboteq manual.
+1/ Diodes to avoid regeneration.
+2/ Current sensors.
+
+
+Clarifications:
+---------------
+1/ In BM3, are the inverters always on?
+
+Issues:
+-------
+1/ Thickness of cable in general. Max current of 300A (2x150A) at peak.
+2/ Current capacity of 
+        * Circuit breaker (only rated to 12V?)
+        * Contactor
+3/ Difference between current-sensors - the ones shown vs the 'round-the-cable' type sensors.
+4/ Solid state relay for brakes - should be driven from output of electronize?
+
+
+
+
